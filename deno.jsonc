@@ -2,5 +2,6 @@
   "lock": false,
   "tasks": {
     "dev": "deno run --allow-net --allow-read --watch main.tsx --dev"
-  }
+  },
+  "fmt": { "proseWrap": "preserve" }
 }
