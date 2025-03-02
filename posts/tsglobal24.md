@@ -1,6 +1,6 @@
 ---
-title: Putting Advanced TypeScript Types Into Practice
-publish_date: 2024-06-10
+title: "Putting Advanced TypeScript Types Into Practice"
+publish_date: "2024-06-10"
 ---
 
 I was a speaker at [TypeScript Global Summit 2024](https://events.geekle.us/typescript24/).
