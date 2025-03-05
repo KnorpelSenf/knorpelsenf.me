@@ -1,6 +1,6 @@
 /** @jsx h */
 
-import blog from "https://raw.githubusercontent.com/denoland/deno_blog/main/blog.tsx";
+import blog from "https://raw.githubusercontent.com/denoland/deno_blog/589c4750d001ae2a4e921385be558d97060e3933/blog.tsx";
 import {
   h,
   type VNode,
