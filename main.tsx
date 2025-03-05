@@ -4,7 +4,7 @@ import blog from "https://raw.githubusercontent.com/denoland/deno_blog/main/blog
 import {
   h,
   type VNode,
-} from "https://raw.githubusercontent.com/denoland/deno_blog/main/deps.ts";
+} from "https://raw.githubusercontent.com/denoland/deno_blog/589c4750d001ae2a4e921385be558d97060e3933/deps.ts";
 
 blog({
   title: "KnorpelSenf's Blog",
