@@ -1,10 +1,10 @@
 /** @jsx h */
 
-import blog from "https://raw.githubusercontent.com/denoland/deno_blog/571a875d774c4043fb0c196134dfac01a2209746/blog.tsx";
+import blog from "https://raw.githubusercontent.com/denoland/deno_blog/589c4750d001ae2a4e921385be558d97060e3933/blog.tsx";
 import {
   h,
   type VNode,
-} from "https://raw.githubusercontent.com/denoland/deno_blog/571a875d774c4043fb0c196134dfac01a2209746/deps.ts";
+} from "https://raw.githubusercontent.com/denoland/deno_blog/589c4750d001ae2a4e921385be558d97060e3933/deps.ts";
 
 blog({
   title: "KnorpelSenf's Blog",
