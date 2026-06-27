@@ -3,7 +3,7 @@ title: "LLMs in Professional Software Engineering"
 date: 2026-06-27
 authors:
   - KnorpelSenf
-preview: "You boss wrote the next to-do application is written in 15 minutes using their favourite LLM. So what?"
+preview: "You boss wrote the next to-do application in 15 minutes using their favourite LLM. So what?"
 ---
 
 > This post is based on my talk at the Waterkant Festival 2026.
