@@ -1,7 +1,10 @@
 {
   "lock": false,
   "tasks": {
-    "dev": "deno run -EINR --watch main.tsx --dev"
+    "dev": "deno serve -ENR --watch main.tsx"
   },
-  "fmt": { "proseWrap": "preserve" }
+  "fmt": { "proseWrap": "preserve" },
+  "imports": {
+    "@tayzendev/smallblog": "jsr:@tayzendev/smallblog@1.3.1"
+  }
 }
