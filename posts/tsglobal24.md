@@ -3,6 +3,7 @@ title: "Putting Advanced TypeScript Types Into Practice"
 date: 2024-06-10
 authors:
   - KnorpelSenf
+preview: "A talk at TypeScript Global Summit 2024. Transcript included."
 ---
 
 I was a speaker at [TypeScript Global Summit 2024](https://events.geekle.us/typescript24/).
