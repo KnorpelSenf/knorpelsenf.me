@@ -2,4 +2,4 @@
 
 Hosted at <https://knorpelsenf.me>.
 
-Built using [smallblog](jsr.io/@tayzendev/smallblog).
+Built using [smallblog](https://jsr.io/@tayzendev/smallblog).
