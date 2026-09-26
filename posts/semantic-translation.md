@@ -13,7 +13,7 @@ Some say that AI will beat software engineers at every task in a few months.
 Some say that human programmers will always be better than AI.
 
 Obviously, both extremes are wildly wrong.
-But what does help to say "the truth is more complicated" without actually figuring out what this complicated bit is?
+But what does it help to say "the truth is more complicated" without actually figuring out what this complicated bit is?
 
 ---
 
