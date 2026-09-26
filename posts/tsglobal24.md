@@ -11,7 +11,7 @@ My talk is about building complex TypeScript types in a way that they can be app
 This can be illustrated with grammY, my first large open-source project.
 You can watch the recording [here](https://youtu.be/ZvT_xexjnMk).
 
-[![talk](./thumb.png)](https://youtu.be/ZvT_xexjnMk)
+[![talk](./tsglobal/thumb.png)](https://youtu.be/ZvT_xexjnMk)
 
 **Edit 2024-07-18:** I have added subtitles to the video.
 I still recommend watching the video, but if that is not your thing, you can read the following transcript.
