@@ -17,7 +17,7 @@ But what does help to say "the truth is more complicated" without actually figur
 
 ---
 
-As most software engineers, I care about solving real problems in the real world.
+Like most software engineers, I care about solving real problems in the real world.
 Unsolved problems.
 Hard problems.
 The stuff that tickles your mind, and that requires some novel solutions and the right trade-offs.
@@ -27,7 +27,7 @@ Can LLMs even help me at all?
 
 I have tried to use LLMs numerous times throughout the years.
 Every time I found that they produce slop and waste my time.
-They either forced me to accept bad changes, or they made me fix up their changes manually which was slower than just doing everything by hand.
+They either forced me to accept bad changes, or they made me fix up their changes manually, which was slower than just doing everything by hand.
 
 In early 2026, this changed.
 Time to collect some evidence.
@@ -45,7 +45,7 @@ This is what I did in March 2026, and here is what I found out.
 
 At [my current employer](https://solvares-fieldservice.com/), we solve large instances of the Vehicle Routing Problem ([wiki](https://en.wikipedia.org/wiki/Vehicle_routing_problem)).
 One reasonably hard problem from this domain is that we have to compute a distance matrix as input to our smart algorithms.
-What's more: Our logic to compute a distance matrix had long been troubled by heaps of legacy code and stability issues, so it posed a good candidate to replace it by something better.
+What's more, our distance matrix implementation had long suffered from heaps of legacy code and stability issues, making it a good candidate for replacement.
 
 Now, what is a distance matrix, you may ask?
 
@@ -86,11 +86,11 @@ Conceptually, the **output** (response body) looks like this:
 }
 ```
 
-Note that from each point to itself, the distance is zero meters (and the time is zero seconds).
+Note that from each point to itself, the distance is zero metres (and the time is zero seconds).
 Due to one-way streets, turn restrictions, etc, going from A to B is only _approximately_ as far as from B to A.
 
 What makes this problem so hard is the extreme performance that we require.
-For example, **for 1000 locations we have no more than 100 milliseconds**.
+For example, **for 1,000 locations we have no more than 100 milliseconds**.
 
 That's right: _one million routes_ must be computed and measured, and the results must be encoded and transmitted over the network and parsed by the client, and all of this must happen in _less than a tenth of a second_.
 Even if we ignore all the networking, we only have 100 nanoseconds to compute each route.
@@ -102,7 +102,7 @@ Vibe-coding this cannot work.
 ## An Impressive Solution
 
 I don't want to go into the details of the sophisticated algorithms and insane optimisations that were needed to pull this off.
-After all, this post is about how LLMs helped me, not about how the system looks.
+After all, this post is about how LLMs helped me, not about how the system works.
 But here is the data on what it took to build this service:
 
 - 3 weeks of regular full-time work
@@ -110,7 +110,7 @@ But here is the data on what it took to build this service:
 - with around €1200 in tokens
 
 Around half of the time (and the tokens) was spent on the actual design and the rust implementation.
-The other half was spent on building the surrounding testing and benchmarking tooling in order to evaluate the solution, as well as to integrate it into our existing infrastructure.
+The other half was spent building testing and benchmarking tooling in order to evaluate the solution, as well as to integrate it into our existing infrastructure.
 
 Here is the p90 performance data for our `c5a.4xlarge` instance on AWS (8 physical AMD Zen 2 cores):
 
@@ -120,16 +120,16 @@ Here is the p90 performance data for our `c5a.4xlarge` instance on AWS (8 physic
 | 500         | 250,000          | 31 ms             |
 | 1,000       | 1,000,000        | 75 ms             |
 | 5,000       | 25,000,000       | 602 ms            |
-| 10,000      | 100,000,000      | 4837 ms           |
+| 10,000      | 100,000,000      | 4,837 ms          |
 
 That's pretty solid!
 Computing 100M distances and travel times in under five seconds on a regular 8-core machine can be counted as a success.
 
 Almost everything is LLM-generated.
-Out of approximately 15,000 lines of code in total, I think I wrote 4 manually and the other 14996 or so with an LLM.
+Out of approximately 15,000 lines of code in total, I think I wrote 4 manually and the other 14,996 or so with an LLM.
 
 Along the way, I wrote a detailed log of what I tried, what worked, and what didn't.
-I noted down _how_ I tried to work with LLMs, rather that saying anything about which algorithms I tried.
+I noted down _how_ I tried to work with LLMs, rather than saying anything about which algorithms I tried.
 
 This diary now lets us answer the key question of this entire blog post:
 
@@ -157,7 +157,7 @@ The term _semantic translation_ needs some clarification.
 
 ## Semantic Translation
 
-By semantic translation, I mean that a concept or an idea is translated semantically from one representation to another.
+By semantic translation, I mean that the same underlying concept or idea is translated from one representation to another.
 
 <div>
 <svg id="semantic-translation-diagram" class="semantic-diagram" fill="none" stroke="none" stroke-linecap="square" stroke-miterlimit="10" xmlns="http://www.w3.org/2000/svg" viewBox="125 170 745 490" width="745"
@@ -223,14 +223,14 @@ By semantic translation, I mean that a concept or an idea is translated semantic
 </div>
 
 This goes beyond merely translating between two human languages (something that LLMs are obviously very good at).
-For example, if you have an English text, it can be translated to its English summary.
+For example, if you have an English text, it can be translated to a matching English summary.
 
-Hypothetically, if you have an English text that describes a program with sufficient detail, such as a line-by-line description of all the operations for a specific programming language, then LLMs will be extremely good at translating this specification to the actual source code.
+Hypothetically, if you have an English text that describes a program in sufficient detail, such as a line-by-line description of all the operations (corresponding to a given programming language), then LLMs will be extremely good at translating this specification to the actual source code in that language.
 
 Similarly, if you have a lot of source code, an LLM can summarise it for you.
 
 What's common among these examples is that **the idea exists**, and the LLM **rewrites it** and lets you move to a different representation of the same idea.
-It does not have to come with with anything substantial on its own.
+It does not have to come up with anything substantial on its own.
 
 But don't we all know that LLMs hallucinate?!
 Even for simple translations we can't be sure of the output!
@@ -279,7 +279,7 @@ Essentially, when you shoot your shot at a translation, you don't hit your targe
 Instead, the LLM will give you output that is _very close_ to what you wanted.
 The translation has a bit of uncertainty that introduces a slight error.
 
-There is a great deal of things to be said about reducing this error.
+There is a great deal to be said about reducing this error.
 For example, going from a lot of info to very little info works well, and the other way around generally does not.
 (Trying to restore the long English text from its short summary will leave you with tons of hallucinations, and false and inaccurate statements.)
 
@@ -329,7 +329,7 @@ The more steps you take, the further you will remove yourself from the concept y
 
 ## Not Semantic Translation
 
-In contrast, here are a few things that _not_ mere translations.
+In contrast, here are a few things that are _not_ mere translations.
 
 <div>
 <svg xmlns="http://www.w3.org/2000/svg" id="semantic-translation-three" class="semantic-diagram" viewBox="165 195 675 410" width="675" height="410" fill="none" stroke="none" stroke-linecap="square" stroke-miterlimit="10" style="display: block; width: 100%; max-width: 100%; height: auto; margin: 10px auto;" role="img" aria-labelledby="semantic-translation-three-title" aria-describedby="semantic-translation-three-desc">
@@ -356,7 +356,7 @@ This may sound obvious.
 If you want to find out what your customer wants, you should not ask an LLM.
 You should ask your customer.
 
-If you ask an LLM about a fact, it will perform semantic translation to that question.
+If you ask an LLM about a fact, it will apply semantic translation to that question.
 The LLM effectively tells you:
 
 > Great question!
@@ -364,12 +364,12 @@ The LLM effectively tells you:
 
 … and then proceeds to list “facts” that it may or may not reproduce from its training data.
 
-This is its way of representing the question by an answer that is as similar as possible.
+This is its way of representing the question by an answer that is as similar as possible to the question you asked.
 However, the facts needed for that answer were not part of the question, so they cannot be part of the translation and have to be made up.[^1]
 
 [^1]: This is why you can essentially get the LLM to argue any position simply by phrasing the question a bit differently.
 
-Facts, requirements, or novel ideas[^2] cannot be LLM-generated well.
+Facts, requirements, or novel ideas[^2] cannot be LLM-generated.
 They can only be LLM-translated.[^3]
 (This is especially true for things that did not appear often in the training data.)
 
@@ -384,7 +384,7 @@ We now have a good intuition for LLMs as semantic translation machines.
 But how exactly does this help programmers?
 
 The thing is, semantic translation can happen in several steps, and combine several data sources.
-For example, a kind of prompt that works very well is to give an LLM
+For example, a kind of prompt that works very well might contain
 
 - a source file name
 - a problem description
@@ -409,14 +409,14 @@ The LLM helps you get there faster.[^4]
 In my case, doing a lot of performance work requires a ton of tasks that LLMs automate easily.
 Instrumenting code, running benchmarks, generating flamegraphs, sifting through endless amounts of performance metric data, and thereby finding bottlenecks are perfect examples of semantic translation.
 Those are _trivial_ tasks for LLMs.
-Because once you know what the exact bottleneck is, it's usually straightforward to fix it and repeat the process.
+Once you know what the exact bottleneck is, it's usually straightforward to fix it and repeat the process.
 
 That's how LLMs help.
 
 ## Addendum: Pattern Recognition and Recombination Machines
 
-A different intuition for what LLMs are is called _pattern recognition and recombination_ machines (thanks to Marc Heimann for telling me about it).
-The idea is that LLMs not only translate, but that they detect patterns that they can replicate and recombine.
+A different intuition for LLMs is called _pattern recognition and recombination_ machines (thanks to Marc Heimann for telling me about it).
+The idea is that LLMs do not translate, but that they detect patterns that they can replicate and recombine.
 That's arguably a more accurate description when you factor in the underlying technology, but I would not say that it is necessarily more intuitive.
 If somebody interrupted me during programming and gave me a machine to recombine textual patterns, I would not know how to deal with it.
 
