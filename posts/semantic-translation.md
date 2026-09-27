@@ -140,15 +140,12 @@ At least, there is a better question to ask:
 
 ## What Is an LLM?
 
-I found that it's more helpful to build an understanding of what an LLM is.
-If you have a good intuition for what an LLM is, it is rather obvious how to characterize the kind of tasks where LLMs can help you.
+Knowing what an LLM is helps you characterize the kind of tasks they can handle.
 
 I mean this in an intuitive sense, not in a technical one.
 Some people say that LLMs are **next-token prediction machines**.
 That's perfectly accurate but not what I mean.
-This intuition is not very enlightening in day-to-day work.
-
-In other words, “here is a machine to predict the next word for you” does not tell me anything about how I should embed it into my workflow.
+This intuition is not very enlightening in day-to-day work, and it does not tell me how to change my workflow.
 
 Instead, I believe we should understand LLMs as **semantic translation machines**.
 They translate an idea or a concept from one representation to another.
