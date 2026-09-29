@@ -1,5 +1,5 @@
 ---
-title: "LLMs in Professional Software Engineering"
+title: "LLMs: Semantic Translation Machines"
 date: 2026-09-26
 authors:
   - KnorpelSenf
